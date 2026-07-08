@@ -1,0 +1,27 @@
+# Layer 1 — Object Annotations
+
+- **Purpose:** Machine-readable bounding-box annotations for road abnormalities visible in Layer 0 images.
+- **Annotation format:** YOLO text format; each row is:
+  - `<class_id> <x_center> <y_center> <width> <height>`
+  - Coordinates and box dimensions are normalized to the range `0–1`.
+- **Files:** 2,074 TXT label files—one for every Layer 0 image—and one metadata CSV.
+- **Annotated objects:** 3,391 bounding boxes across 1,984 images.
+- **Negative images:** 90 empty TXT files represent images with no annotated abnormality.
+- **Class map and box counts:**
+  - `0` — Crack: 33.
+  - `1` — Manhole: 523.
+  - `2` — Miscellaneous abnormality: 24.
+  - `3` — Pothole: 639.
+  - `4` — Road patch failure: 335.
+  - `5` — Surface depression: 1,837.
+- **Contents:**
+  - `IMG_#####.txt` — YOLO labels corresponding to `layer_0_raw_images/IMG_#####.*`.
+  - `layer_1_annotation_metadata.csv` — flattened, human-readable annotation table.
+- **Metadata columns:**
+  - `image_id` — links an annotation to its source image and Layers 2–3.
+  - `abnormality_id` — unique object ID in the form `IMG_#####_annotation_###`.
+  - `abnormality_type` — class name.
+  - `x_centre`, `y_centre` — normalized bounding-box center.
+  - `width_scaled`, `height_scaled` — normalized bounding-box size.
+- **Integrity:** Every image has a matching TXT file; there are no orphan images or labels.
+- **Usage:** Use the TXT files directly for YOLO training; use the CSV for analysis, filtering, or conversion.

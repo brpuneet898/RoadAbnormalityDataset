@@ -1,0 +1,21 @@
+# Layer 3 — Geospatial and Road-Context Metadata
+
+- **Purpose:** Image-level location grids, road properties, traffic context, and nearby landmarks.
+- **Contents:** `layer_3_geospatial_metadata.csv`.
+- **Rows:** 2,074—one for every Layer 0 image.
+- **Key:** `image_id` uniquely links each row to Layers 0–2.
+- **Location columns:**
+  - `collection_state` — Delhi, Maharashtra, or Tamil Nadu.
+  - `district` — Chengalpattu, Chennai, North West, Sangli, or Tiruvallur.
+  - `latitude_grid`, `longitude_grid` — gridded geographic coordinates.
+- **Road and environment columns:**
+  - `pavement_type` — `asphalt`, `concrete`, `gravel`, `mixed`, or `unpaved`.
+  - `traffic_density` — `low`, `medium`, or `high`.
+  - `collection_season` — `summer`, `monsoon`, `post_monsoon`, or `winter`.
+  - `nearby_feature` — bridge, bus stop, commercial area, construction site, drainage channel, hospital, market, parking area, residential building, school, traffic signal, or none.
+  - `slope_type` — `flat` or `mild_slope`.
+  - `road_width_category` — `narrow`, `medium`, `wide`, or `very_wide`.
+  - `intersection_proximity` — `at_intersection`, `near_intersection`, or `mid_block`.
+- **Completeness:** All 12 columns are populated for all 2,074 records.
+- **Usage:** Use for spatial analysis, geographic splits, contextual modeling, bias checks, and location-based filtering.
+- **Privacy note:** Treat coordinates as location-sensitive data and avoid unnecessary public exposure.

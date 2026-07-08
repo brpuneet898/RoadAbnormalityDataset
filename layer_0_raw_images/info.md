@@ -1,0 +1,21 @@
+# Layer 0 — Raw Images
+
+- **Purpose:** Original road-scene images; this is the base data used by all later layers.
+- **Dataset unit:** One image per `image_id`, named `IMG_#####`.
+- **Image count:** 2,074.
+- **Formats:** 1,143 JPG, 616 PNG, and 315 HEIC images.
+- **Approximate image volume:** 2.84 GiB.
+- **Coverage:** Images were collected in Delhi, Maharashtra, and Tamil Nadu.
+- **Contents:**
+  - `IMG_#####.jpg|png|heic` — source road images.
+  - `layer_0_raw_image_metadata.csv` — one metadata row per image.
+- **Metadata columns:**
+  - `image_id` — unique image identifier; links the image to Layers 1–3.
+  - `file_type` — image format without the leading dot.
+  - `file_size` — file size in MiB, rounded to four decimals.
+  - `resolution_width`, `resolution_height` — pixel dimensions.
+  - `collection_date` — acquisition date in `DD-MM-YYYY` format.
+  - `collection_state` — state or territory where the image was collected.
+- **Integrity:** The metadata CSV contains 2,074 unique image IDs with no missing values.
+- **Usage:** Use these files as model inputs, for visualization, or with the matching Layer 1 bounding boxes.
+- **Note:** Keep filenames unchanged; the shared `image_id` is the dataset’s cross-layer key.

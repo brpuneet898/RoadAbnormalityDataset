@@ -26,3 +26,24 @@
 | Near duplicates detected | 6 |
 | pHash threshold used | 2 |
 | Cosine similarity threshold | 0.995 |
+
+### 1.3 - Metadata Consistency
+
+| Metric | Value |
+| --- | ---: |
+| Layer 0 image IDs | 2074 |
+| Layer 1 annotation IDs | 1984 |
+| Layer 2 metadata IDs | 2074 |
+| Layer 3 geospatial IDs | 2074 |
+| Layer0 ∩ Layer1 | 1984 |
+| Layer0 ∩ Layer2 | 2074 |
+| Layer0 ∩ Layer3 | 2074 |
+| Common in all layers | 1984 |
+| Missing in Layer 1 | 90 |
+| Missing in Layer 2 | 0 |
+| Missing in Layer 3 | 0 |
+| Extra IDs in Layer 1 | 0 |
+| Extra IDs in Layer 2 | 0 |
+| Extra IDs in Layer 3 | 0 |
+
+> **Note:** The Venn diagram image has been saved in the `/figures` folder.

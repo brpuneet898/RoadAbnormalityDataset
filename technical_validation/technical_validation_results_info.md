@@ -68,3 +68,24 @@
 | Layer 3 | 1 | 0 |
 
 **Result: PASS - No label consistency issues found.**
+
+## Phase 2 - Dataset Characterization
+
+### 2.1 - Class Distribution
+
+| Abnormality Type | Number of Images/Annotations | Percentage |
+| --- | ---: | ---: |
+| Surface depression | 1837 | 54.17 |
+| Pothole | 639 | 18.84 |
+| Manhole | 523 | 15.42 |
+| Road patch failure | 335 | 9.88 |
+| Crack | 33 | 0.97 |
+| Miscellaneous abnormality | 24 | 0.71 |
+
+#### Class Imbalance Discussion
+
+The most frequent class is `Surface depression` with 1837 instances.
+
+The least frequent class is `Miscellaneous abnormality` with 24 instances.
+
+> **Note:** The class distribution pie chart and histogram plots have been saved in the `/figures` folder.

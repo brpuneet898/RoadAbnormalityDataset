@@ -89,3 +89,11 @@ The most frequent class is `Surface depression` with 1837 instances.
 The least frequent class is `Miscellaneous abnormality` with 24 instances.
 
 > **Note:** The class distribution pie chart and histogram plots have been saved in the `/figures` folder.
+
+### 2.2 - Severity Distribution
+
+| Severity | Count | Percentage |
+| --- | ---: | ---: |
+| minor | 611 | 29.46 |
+| moderate | 896 | 43.20 |
+| severe | 567 | 27.34 |

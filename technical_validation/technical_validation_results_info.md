@@ -115,11 +115,29 @@ The least frequent class is `Miscellaneous abnormality` with 24 instances.
 | wet_road | 185 | 8.92 |
 | cloudy | 54 | 2.60 |
 
-#### Lighting Distribution
-
 | Lighting Condition | Count | Percentage |
 | --- | ---: | ---: |
 | daylight | 1704 | 82.16 |
 | night | 286 | 13.79 |
 | shadow | 67 | 3.23 |
 | low_light | 17 | 0.82 |
+
+### 2.5 - Geographic Distribution
+
+#### State-wise Geographic Distribution
+
+| State | Count | Percentage |
+| --- | ---: | ---: |
+| Tamil Nadu | 1068 | 51.49 |
+| Delhi | 779 | 37.56 |
+| Maharashtra | 227 | 10.95 |
+
+| District | Count | Percentage |
+| --- | ---: | ---: |
+| North West | 779 | 37.56 |
+| Chennai | 434 | 20.93 |
+| Chengalpattu | 319 | 15.38 |
+| Tiruvallur | 315 | 15.19 |
+| Sangli | 227 | 10.95 |
+
+> **Note:** The geographic heatmap has been saved in the `/figures` folder.

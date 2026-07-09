@@ -153,3 +153,14 @@ The least frequent class is `Miscellaneous abnormality` with 24 instances.
 | relative_object_size | 7.1510 | 3.7783 | 0.0603 | 97.4554 |
 
 > **Note:** The bounding box histogram and boxplots have been saved in the `/figures` folder.
+
+### 2.7 - Number of Objects per Image
+
+| Objects per Image | Number of Images | Percentage |
+| --- | ---: | ---: |
+| 1 | 1108 | 55.85 |
+| 2 | 530 | 26.71 |
+| 3 | 227 | 11.44 |
+| 4+ | 119 | 6.00 |
+
+> **Note:** The objects-per-image histogram has been saved in the `/figures` folder.

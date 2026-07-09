@@ -1,0 +1,21 @@
+# Layer 3 — Geospatial Metadata
+
+- **Purpose:** Image-level location and road-context metadata for the Layer 0 images.
+- **Contents:** `layer_3_geospatial_metadata.csv`.
+- **Rows:** 2,074—one for every Layer 0 image.
+- **Key:** `image_id` uniquely links each row to Layers 0, 1, and 2.
+- **Location columns:**
+  - `collection_state` — state or territory where the image was collected: `Delhi`, `Maharashtra`, or `Tamil Nadu`.
+  - `district` — collection district: `Chengalpattu`, `Chennai`, `North West`, `Sangli`, or `Tiruvallur`.
+  - `latitude_grid`, `longitude_grid` — geographic coordinates associated with the image.
+- **Road-context columns and allowed values:**
+  - `pavement_type` — `asphalt`, `concrete`, `gravel`, `mixed`, or `unpaved`.
+  - `traffic_density` — `low`, `medium`, or `high`.
+  - `collection_season` — `summer`, `monsoon`, `post_monsoon`, or `winter`.
+  - `nearby_feature` — `bridge`, `bus_stop`, `commercial_area`, `construction_site`, `drainage_channel`, `hospital`, `market`, `none`, `parking_area`, `residential_building`, `school`, or `traffic_signal`.
+  - `slope_type` — `flat` or `mild_slope`.
+  - `road_width_category` — `narrow`, `medium`, `wide`, or `very_wide`.
+  - `intersection_proximity` — `at_intersection`, `near_intersection`, or `mid_block`.
+- **Integrity:** The CSV contains 2,074 unique image IDs with no missing values.
+- **Granularity:** All location and road-context attributes are image-level.
+- **Usage:** Use for geographic analysis, map-based visualization, spatial sampling, location-aware model evaluation, or enriching Layers 1 and 2.

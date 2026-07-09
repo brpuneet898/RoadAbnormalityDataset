@@ -1,10 +1,6 @@
-# label_consistency_check.py
-
 from pathlib import Path
 import pandas as pd
 
-
-# ---------------- CONFIG ----------------
 ROOT_DIR = Path("../../..")
 
 LAYER_DIRS = {
@@ -13,13 +9,11 @@ LAYER_DIRS = {
     "Layer 3": ROOT_DIR / "layer_3_geospatial",
 }
 
-# Column names expected somewhere in your CSV files
 WEATHER_COL = "weather"
 LIGHTING_COL = "lighting"
 ROAD_TYPE_COL = "road_type"
 TRAFFIC_DENSITY_COL = "traffic_density"
 
-# Logical consistency rules
 INVALID_WEATHER_LIGHTING = {
     ("night", "daylight"),
     ("night", "bright daylight"),
@@ -39,8 +33,6 @@ INVALID_ROAD_TRAFFIC = {
     ("rural road", "very high"),
     ("narrow road", "very high"),
 }
-# ----------------------------------------
-
 
 def normalize(value):
     if pd.isna(value):

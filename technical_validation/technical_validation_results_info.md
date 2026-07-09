@@ -58,3 +58,13 @@
 | Layer 3 | 0 |
 
 > **Note:** In Layer 2, fields were left empty only for images for which annotations could not be provided.
+
+### 1.5 - Label Consistency
+
+| Layer | Files checked | Issues found |
+| --- | ---: | ---: |
+| Layer 1 | 1 | 0 |
+| Layer 2 | 1 | 0 |
+| Layer 3 | 1 | 0 |
+
+**Result: PASS - No label consistency issues found.**

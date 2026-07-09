@@ -47,3 +47,14 @@
 | Extra IDs in Layer 3 | 0 |
 
 > **Note:** The Venn diagram image has been saved in the `/figures` folder.
+
+### 1.4 - Missing Value Analysis
+
+| Layer | Missing values |
+| --- | ---: |
+| Layer 0 | 0 |
+| Layer 1 | 0 |
+| Layer 2 | 90 |
+| Layer 3 | 0 |
+
+> **Note:** In Layer 2, fields were left empty only for images for which annotations could not be provided.

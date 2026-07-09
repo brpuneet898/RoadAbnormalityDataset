@@ -97,3 +97,12 @@ The least frequent class is `Miscellaneous abnormality` with 24 instances.
 | minor | 611 | 29.46 |
 | moderate | 896 | 43.20 |
 | severe | 567 | 27.34 |
+
+### 2.3 - Road Type Distribution
+
+| Road Type | Count | Percentage |
+| --- | ---: | ---: |
+| urban | 1473 | 71.02 |
+| highway | 7 | 0.34 |
+| residential | 284 | 13.69 |
+| rural | 310 | 14.95 |

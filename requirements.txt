@@ -1,0 +1,7 @@
+pandas
+Pillow
+pillow-heif
+imagehash
+numpy
+matplotlib
+matplotlib-venn

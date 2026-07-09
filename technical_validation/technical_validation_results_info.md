@@ -1,0 +1,166 @@
+# Technical Validation Results
+
+## Phase 1 - Dataset Integrity Validation
+
+### 1.1 - Image Integrity
+
+| Metric | Value |
+| --- | ---: |
+| Total images | 2074 |
+| Successfully opened images | 2074 |
+| Corrupted images | 0 |
+| Duplicate filenames | 0 |
+| Invalid formats | 0 |
+| Resolution mismatches | 0 |
+| Supported formats | .heic, .jpeg, .jpg, .png |
+
+### 1.2 - Duplicate Image Detection
+
+| Metric | Value |
+| --- | ---: |
+| Total image files scanned | 2074 |
+| Successfully processed images | 2074 |
+| Unreadable images | 0 |
+| Invalid format files ignored | 0 |
+| Exact duplicates detected | 3 |
+| Near duplicates detected | 6 |
+| pHash threshold used | 2 |
+| Cosine similarity threshold | 0.995 |
+
+### 1.3 - Metadata Consistency
+
+| Metric | Value |
+| --- | ---: |
+| Layer 0 image IDs | 2074 |
+| Layer 1 annotation IDs | 1984 |
+| Layer 2 metadata IDs | 2074 |
+| Layer 3 geospatial IDs | 2074 |
+| Layer0 ∩ Layer1 | 1984 |
+| Layer0 ∩ Layer2 | 2074 |
+| Layer0 ∩ Layer3 | 2074 |
+| Common in all layers | 1984 |
+| Missing in Layer 1 | 90 |
+| Missing in Layer 2 | 0 |
+| Missing in Layer 3 | 0 |
+| Extra IDs in Layer 1 | 0 |
+| Extra IDs in Layer 2 | 0 |
+| Extra IDs in Layer 3 | 0 |
+
+> **Note:** The Venn diagram image has been saved in the `/figures` folder.
+
+### 1.4 - Missing Value Analysis
+
+| Layer | Missing values |
+| --- | ---: |
+| Layer 0 | 0 |
+| Layer 1 | 0 |
+| Layer 2 | 90 |
+| Layer 3 | 0 |
+
+> **Note:** In Layer 2, fields were left empty only for images for which annotations could not be provided.
+
+### 1.5 - Label Consistency
+
+| Layer | Files checked | Issues found |
+| --- | ---: | ---: |
+| Layer 1 | 1 | 0 |
+| Layer 2 | 1 | 0 |
+| Layer 3 | 1 | 0 |
+
+**Result: PASS - No label consistency issues found.**
+
+## Phase 2 - Dataset Characterization
+
+### 2.1 - Class Distribution
+
+| Abnormality Type | Number of Images/Annotations | Percentage |
+| --- | ---: | ---: |
+| Surface depression | 1837 | 54.17 |
+| Pothole | 639 | 18.84 |
+| Manhole | 523 | 15.42 |
+| Road patch failure | 335 | 9.88 |
+| Crack | 33 | 0.97 |
+| Miscellaneous abnormality | 24 | 0.71 |
+
+#### Class Imbalance Discussion
+
+The most frequent class is `Surface depression` with 1837 instances.
+
+The least frequent class is `Miscellaneous abnormality` with 24 instances.
+
+> **Note:** The class distribution pie chart and histogram plots have been saved in the `/figures` folder.
+
+### 2.2 - Severity Distribution
+
+| Severity | Count | Percentage |
+| --- | ---: | ---: |
+| minor | 611 | 29.46 |
+| moderate | 896 | 43.20 |
+| severe | 567 | 27.34 |
+
+### 2.3 - Road Type Distribution
+
+| Road Type | Count | Percentage |
+| --- | ---: | ---: |
+| urban | 1473 | 71.02 |
+| highway | 7 | 0.34 |
+| residential | 284 | 13.69 |
+| rural | 310 | 14.95 |
+
+### 2.4 - Weather Distribution
+
+| Weather | Count | Percentage |
+| --- | ---: | ---: |
+| clear_dry | 1835 | 88.48 |
+| wet_road | 185 | 8.92 |
+| cloudy | 54 | 2.60 |
+
+| Lighting Condition | Count | Percentage |
+| --- | ---: | ---: |
+| daylight | 1704 | 82.16 |
+| night | 286 | 13.79 |
+| shadow | 67 | 3.23 |
+| low_light | 17 | 0.82 |
+
+### 2.5 - Geographic Distribution
+
+#### State-wise Geographic Distribution
+
+| State | Count | Percentage |
+| --- | ---: | ---: |
+| Tamil Nadu | 1068 | 51.49 |
+| Delhi | 779 | 37.56 |
+| Maharashtra | 227 | 10.95 |
+
+| District | Count | Percentage |
+| --- | ---: | ---: |
+| North West | 779 | 37.56 |
+| Chennai | 434 | 20.93 |
+| Chengalpattu | 319 | 15.38 |
+| Tiruvallur | 315 | 15.19 |
+| Sangli | 227 | 10.95 |
+
+> **Note:** The geographic heatmap has been saved in the `/figures` folder.
+
+### 2.6 - Bounding Box Distribution
+
+| Metric | Average | Median | Minimum | Maximum |
+| --- | ---: | ---: | ---: | ---: |
+| width_scaled | 0.2863 | 0.2429 | 0.0265 | 1.0000 |
+| height_scaled | 0.1930 | 0.1507 | 0.0192 | 1.0000 |
+| aspect_ratio | 1.8080 | 1.5364 | 0.1604 | 13.4409 |
+| object_area | 0.0715 | 0.0378 | 0.0006 | 0.9746 |
+| relative_object_size | 7.1510 | 3.7783 | 0.0603 | 97.4554 |
+
+> **Note:** The bounding box histogram and boxplots have been saved in the `/figures` folder.
+
+### 2.7 - Number of Objects per Image
+
+| Objects per Image | Number of Images | Percentage |
+| --- | ---: | ---: |
+| 1 | 1108 | 55.85 |
+| 2 | 530 | 26.71 |
+| 3 | 227 | 11.44 |
+| 4+ | 119 | 6.00 |
+
+> **Note:** The objects-per-image histogram has been saved in the `/figures` folder.

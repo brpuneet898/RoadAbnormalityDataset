@@ -141,3 +141,15 @@ The least frequent class is `Miscellaneous abnormality` with 24 instances.
 | Sangli | 227 | 10.95 |
 
 > **Note:** The geographic heatmap has been saved in the `/figures` folder.
+
+### 2.6 - Bounding Box Distribution
+
+| Metric | Average | Median | Minimum | Maximum |
+| --- | ---: | ---: | ---: | ---: |
+| width_scaled | 0.2863 | 0.2429 | 0.0265 | 1.0000 |
+| height_scaled | 0.1930 | 0.1507 | 0.0192 | 1.0000 |
+| aspect_ratio | 1.8080 | 1.5364 | 0.1604 | 13.4409 |
+| object_area | 0.0715 | 0.0378 | 0.0006 | 0.9746 |
+| relative_object_size | 7.1510 | 3.7783 | 0.0603 | 97.4554 |
+
+> **Note:** The bounding box histogram and boxplots have been saved in the `/figures` folder.

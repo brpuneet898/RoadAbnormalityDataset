@@ -106,3 +106,20 @@ The least frequent class is `Miscellaneous abnormality` with 24 instances.
 | highway | 7 | 0.34 |
 | residential | 284 | 13.69 |
 | rural | 310 | 14.95 |
+
+### 2.4 - Weather Distribution
+
+| Weather | Count | Percentage |
+| --- | ---: | ---: |
+| clear_dry | 1835 | 88.48 |
+| wet_road | 185 | 8.92 |
+| cloudy | 54 | 2.60 |
+
+#### Lighting Distribution
+
+| Lighting Condition | Count | Percentage |
+| --- | ---: | ---: |
+| daylight | 1704 | 82.16 |
+| night | 286 | 13.79 |
+| shadow | 67 | 3.23 |
+| low_light | 17 | 0.82 |

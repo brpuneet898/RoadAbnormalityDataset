@@ -315,3 +315,16 @@ Tamil Nadu samples: 51.49% of the dataset.
 - Cramér's V values are in the weak-effect range for all three tests, meaning the differences are statistically detectable but the practical association strength is limited.
 - The class distribution has many low expected cells, so its chi-square result should be interpreted carefully because several rare multi-label class combinations have very small counts.
 - For future improvement, collecting more samples from rare abnormality classes, highway roads, and underrepresented combinations would make the dataset more balanced and statistically robust.
+
+### 4.4 - Correlation Analysis
+
+| Analysis | Method | Statistic | Degrees of freedom | P-value | Effect size | Effect measure | Effect strength | Significance | Sample size | Expected cells < 5 |
+| --- | --- | ---: | --- | --- | ---: | --- | --- | --- | ---: | --- |
+| Weather → severity | Chi-square | 102.3951 | 4 | <0.0001 | 0.1541 | Cramér's V | Weak | Significant | 2074 | 0/9 |
+| Road type → abnormality type | Chi-square | 246.7968 | 135 | <0.0001 | 0.1371 | Cramér's V | Weak | Significant | 1984 | 152/184 |
+| Traffic density → abnormality frequency | Spearman correlation | -0.0003 | N/A | 0.9878 | -0.0003 | Spearman rho | Negligible, negative | Not significant | 2074 | N/A |
+| Traffic density → abnormality frequency | Kruskal-Wallis | 0.0663 | 2 | 0.9674 | N/A | N/A | N/A | Not significant | 2074 | N/A |
+
+- Weather and road type show statistically significant but weak associations with severity and abnormality type.
+- Traffic density does not show a significant relationship with abnormality frequency.
+- These results indicate association only, not causation.

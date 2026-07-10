@@ -182,3 +182,17 @@ The annotation protocol defines how road abnormality objects were identified, la
 > **Note:** This protocol was followed to maintain consistency in class labels, bounding-box placement, and annotation quality across the dataset.
 
 ### 3.2 - Manual Review
+
+| Review Item | Value |
+| --- | ---: |
+| Total dataset images | 2074 |
+| Sampling percentage | 10% |
+| Images manually reviewed | 207 |
+| Reviewed by | Puneet |
+| Correct annotations | 207 |
+| Incorrect annotations | 0 |
+| Missing annotations | 0 |
+| False positives | 0 |
+
+> **Note:** A random 10% sample of the dataset, corresponding to 207 images, was manually reviewed by Puneet. All reviewed annotations were found to be correct, with no incorrect annotations, missing annotations, or false positives observed.
+

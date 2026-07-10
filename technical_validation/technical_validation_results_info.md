@@ -299,3 +299,19 @@ Tamil Nadu samples: 51.49% of the dataset.
 - Delhi and Maharashtra are represented, but Maharashtra has a comparatively smaller share at 10.95%, which may reduce generalization for that region.
 - Road abnormality appearance can vary by climate, construction material, maintenance practices, and urban planning patterns, so this state-level imbalance may introduce regional bias.
 - Additional samples from underrepresented states and districts would improve geographic diversity and make the dataset more representative across India.
+
+### 4.3 - Distribution Comparison
+
+| Distribution | Chi-square | Degrees of freedom | P-value | Significant | Cramér's V | Effect | Low expected cells | Sample size |
+| --- | ---: | ---: | --- | --- | ---: | --- | ---: | ---: |
+| Class | 338.9292 | 90 | < 0.0001 | Yes | 0.2506 | Weak | 102/138 | 1984 |
+| Severity | 85.5020 | 4 | < 0.0001 | Yes | 0.1402 | Weak | 0/9 | 2074 |
+| Road Type | 360.6529 | 6 | < 0.0001 | Yes | 0.2925 | Weak | 3/12 | 2074 |
+
+- All three distributions show statistically significant differences, with p-values below 0.0001.
+- The class distribution is significantly imbalanced, which is expected because surface depression and pothole-related categories occur much more frequently than rare classes such as crack and miscellaneous abnormality.
+- The severity distribution is also statistically significant, but the effect size is weak, indicating that the imbalance exists but is not extremely strong.
+- The road type distribution shows a significant difference, mainly due to the high number of urban samples compared with highway, residential, and rural samples.
+- Cramér's V values are in the weak-effect range for all three tests, meaning the differences are statistically detectable but the practical association strength is limited.
+- The class distribution has many low expected cells, so its chi-square result should be interpreted carefully because several rare multi-label class combinations have very small counts.
+- For future improvement, collecting more samples from rare abnormality classes, highway roads, and underrepresented combinations would make the dataset more balanced and statistically robust.

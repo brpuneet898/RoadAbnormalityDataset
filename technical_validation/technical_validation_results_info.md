@@ -216,3 +216,76 @@ Annotation accuracy was assessed by computing the mean Intersection over Union (
 | Accuracy Metric | Annotator A | Annotator B | Value |
 | --- | --- | --- | ---: |
 | Mean IoU | Saransh Saini | Prathamesh Pise | 0.91 |
+
+## Phase 4 - Statistical Validation
+
+### 4.1 - Confidence Intervals
+
+#### 95% Confidence Intervals - Class Proportions
+
+| Abnormality Type | Count | Proportion | 95% CI Lower | 95% CI Upper |
+| --- | ---: | ---: | ---: | ---: |
+| Crack | 12 | 0.0058 | 0.0025 | 0.0091 |
+| Crack; Surface depression | 4 | 0.0019 | 0.0000 | 0.0038 |
+| Crack; Surface depression; Manhole | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Manhole | 233 | 0.1123 | 0.0988 | 0.1259 |
+| Manhole; Crack | 2 | 0.0010 | 0.0000 | 0.0023 |
+| Manhole; Crack; Surface depression | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Manhole; Miscellaneous abnormality | 3 | 0.0014 | 0.0000 | 0.0031 |
+| Manhole; Pothole | 16 | 0.0077 | 0.0039 | 0.0115 |
+| Manhole; Pothole; Surface depression | 7 | 0.0034 | 0.0009 | 0.0059 |
+| Manhole; Road patch failure | 11 | 0.0053 | 0.0022 | 0.0084 |
+| Manhole; Road patch failure; Crack | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Manhole; Road patch failure; Surface depression | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Manhole; Surface depression | 113 | 0.0545 | 0.0447 | 0.0643 |
+| Manhole; Surface depression; Pothole | 2 | 0.0010 | 0.0000 | 0.0023 |
+| Manhole; Surface depression; Road patch failure | 2 | 0.0010 | 0.0000 | 0.0023 |
+| Miscellaneous abnormality | 14 | 0.0068 | 0.0032 | 0.0103 |
+| Miscellaneous abnormality; Manhole | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Miscellaneous abnormality; Surface depression | 2 | 0.0010 | 0.0000 | 0.0023 |
+| Pothole | 211 | 0.1017 | 0.0887 | 0.1147 |
+| Pothole; Manhole | 21 | 0.0101 | 0.0058 | 0.0144 |
+| Pothole; Manhole; Surface depression | 7 | 0.0034 | 0.0009 | 0.0059 |
+| Pothole; Road patch failure | 11 | 0.0053 | 0.0022 | 0.0084 |
+| Pothole; Road patch failure; Surface depression | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Pothole; Surface depression | 106 | 0.0511 | 0.0416 | 0.0606 |
+| Pothole; Surface depression; Manhole | 5 | 0.0024 | 0.0003 | 0.0045 |
+| Pothole; Surface depression; Road patch failure | 4 | 0.0019 | 0.0000 | 0.0038 |
+| Road patch failure | 146 | 0.0704 | 0.0594 | 0.0814 |
+| Road patch failure; Crack | 4 | 0.0019 | 0.0000 | 0.0038 |
+| Road patch failure; Manhole | 2 | 0.0010 | 0.0000 | 0.0023 |
+| Road patch failure; Manhole; Surface depression | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Road patch failure; Miscellaneous abnormality | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Road patch failure; Pothole | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Road patch failure; Surface depression | 18 | 0.0087 | 0.0047 | 0.0127 |
+| Road patch failure; Surface depression; Pothole | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Surface depression | 881 | 0.4248 | 0.4035 | 0.4461 |
+| Surface depression; Crack | 4 | 0.0019 | 0.0000 | 0.0038 |
+| Surface depression; Crack; Road patch failure | 1 | 0.0005 | 0.0000 | 0.0014 |
+| Surface depression; Manhole | 36 | 0.0174 | 0.0117 | 0.0230 |
+| Surface depression; Manhole; Pothole | 4 | 0.0019 | 0.0000 | 0.0038 |
+| Surface depression; Manhole; Road patch failure | 2 | 0.0010 | 0.0000 | 0.0023 |
+| Surface depression; Miscellaneous abnormality | 3 | 0.0014 | 0.0000 | 0.0031 |
+| Surface depression; Pothole | 48 | 0.0231 | 0.0167 | 0.0296 |
+| Surface depression; Pothole; Manhole | 3 | 0.0014 | 0.0000 | 0.0031 |
+| Surface depression; Pothole; Road patch failure | 2 | 0.0010 | 0.0000 | 0.0023 |
+| Surface depression; Road patch failure | 33 | 0.0159 | 0.0105 | 0.0213 |
+| Surface depression; Road patch failure; Manhole | 1 | 0.0005 | 0.0000 | 0.0014 |
+| NaN | 90 | 0.0434 | 0.0346 | 0.0522 |
+
+#### 95% Confidence Intervals - Severity Proportions
+
+| Severity | Count | Proportion | 95% CI Lower | 95% CI Upper |
+| --- | ---: | ---: | ---: | ---: |
+| minor | 611 | 0.2946 | 0.2750 | 0.3142 |
+| moderate | 896 | 0.4320 | 0.4107 | 0.4533 |
+| severe | 567 | 0.2734 | 0.2542 | 0.2926 |
+
+#### 95% Confidence Intervals - Road Type Proportions
+
+| Road Type | Count | Proportion | 95% CI Lower | 95% CI Upper |
+| --- | ---: | ---: | ---: | ---: |
+| highway | 7 | 0.0034 | 0.0009 | 0.0059 |
+| residential | 284 | 0.1369 | 0.1221 | 0.1517 |
+| rural | 310 | 0.1495 | 0.1341 | 0.1648 |
+| urban | 1473 | 0.7102 | 0.6907 | 0.7297 |

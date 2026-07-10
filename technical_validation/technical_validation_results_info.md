@@ -164,3 +164,21 @@ The least frequent class is `Miscellaneous abnormality` with 24 instances.
 | 4+ | 119 | 6.00 |
 
 > **Note:** The objects-per-image histogram has been saved in the `/figures` folder.
+
+## Phase 3 - Annotation Quality Validation
+
+### 3.1 - Annotation Protocol
+
+The annotation protocol defines how road abnormality objects were identified, labelled, and recorded across the dataset. The purpose of this protocol is to ensure that annotations are consistent, reproducible, and suitable for downstream computer vision and dataset analysis tasks.
+
+| Protocol Item | Documentation |
+| --- | --- |
+| Who annotated? | The dataset images were annotated by the dataset preparation team (2 members - Saransh Saini and Prathamesh Pise) using a consistent road-abnormality labelling protocol. Annotators reviewed each image and marked visible road abnormalities such as potholes, cracks, manholes, road patch failures, surface depressions, and miscellaneous abnormalities. |
+| Training given? | Annotators were briefed on the dataset class definitions, severity categories, and bounding-box drawing rules before annotation. Example images were used to explain how each abnormality type should be identified and how ambiguous cases should be handled. |
+| Software used? | An image annotation tool from HuggingFace was used to draw bounding boxes around road abnormalities and export annotation metadata for further validation. The exported annotations were stored and validated through the Layer 1 annotation metadata files. |
+| Instructions? | Annotators were instructed to mark only clearly visible road abnormalities, assign the most appropriate abnormality class, and avoid labelling unrelated road objects or background regions. Each bounding box was expected to tightly cover the visible abnormality while preserving enough context to represent the full damaged area. |
+| Boundary rules? | Bounding boxes were drawn around the complete visible extent of each abnormality. If an abnormality was partially occluded or cut off by the image boundary, only the visible portion was annotated. Overlapping abnormalities were annotated separately when they represented distinct objects. Very unclear or non-visible abnormalities were not annotated. |
+
+> **Note:** This protocol was followed to maintain consistency in class labels, bounding-box placement, and annotation quality across the dataset.
+
+### 3.2 - Manual Review

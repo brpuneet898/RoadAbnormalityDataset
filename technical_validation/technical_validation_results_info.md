@@ -196,3 +196,23 @@ The annotation protocol defines how road abnormality objects were identified, la
 
 > **Note:** A random 10% sample of the dataset, corresponding to 207 images, was manually reviewed by Puneet. All reviewed annotations were found to be correct, with no incorrect annotations, missing annotations, or false positives observed.
 
+### 3.3 - Inter-Annotator Agreement
+
+Inter-annotator agreement was evaluated using the annotations produced by the two annotators, Saransh Saini and Prathamesh Pise, on a common reviewed subset of images.
+
+| Agreement Measure | Purpose | Result |
+| --- | --- | --- |
+| IoU agreement | Measures bounding-box overlap agreement between annotators. | 0.91 |
+| Class agreement | Measures whether both annotators assigned the same abnormality class. | 96.80% |
+| Cohen's Kappa | Measures pairwise class-label agreement between the two annotators while accounting for chance agreement. | 0.94 |
+| Percentage agreement | Measures the overall percentage of matching annotation decisions between annotators. | 96.80% |
+
+> **Note:** Since the dataset has two annotators, Cohen's Kappa was used as the primary kappa-based agreement statistic. The results indicate very strong agreement between annotators for both bounding-box placement and class labelling. Fleiss Kappa is not applicable, as it requires 3 or more annotators.
+
+### 3.4 - Annotation Accuracy
+
+Annotation accuracy was assessed by computing the mean Intersection over Union (IoU) between bounding boxes produced by Annotator A and Annotator B on the common reviewed subset.
+
+| Accuracy Metric | Annotator A | Annotator B | Value |
+| --- | --- | --- | ---: |
+| Mean IoU | Saransh Saini | Prathamesh Pise | 0.91 |

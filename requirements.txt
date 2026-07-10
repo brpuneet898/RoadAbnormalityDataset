@@ -5,3 +5,4 @@ imagehash
 numpy
 matplotlib
 matplotlib-venn
+scipy

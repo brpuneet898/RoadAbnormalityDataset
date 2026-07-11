@@ -1,19 +1,3 @@
-#!/usr/bin/env python3
-"""
-Shared Phase 5.3 multi-label image-classification pipeline.
-
-Default labels are built from layer_1_annotation_metadata.csv by grouping all
-unique `abnormality_type` values belonging to the same image_id. This is the
-appropriate source when one image can contain several abnormalities.
-
-Outputs:
-    figures/<model_name>/*.png
-    models/<model_name>_best.pt
-    models/<model_name>_last.pt
-
-Results are printed as terminal tables. No result CSV files are generated.
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -143,10 +127,6 @@ def iterative_like_split(
     test_fraction: float,
     seed: int,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """
-    Uses multilabel-stratified splitting when iterative-stratification is
-    installed, otherwise falls back to deterministic random splitting.
-    """
     if val_fraction <= 0 or test_fraction <= 0 or val_fraction + test_fraction >= 1:
         raise ValueError("Validation and test fractions must be > 0 and sum to < 1.")
 

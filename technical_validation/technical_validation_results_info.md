@@ -328,3 +328,32 @@ Tamil Nadu samples: 51.49% of the dataset.
 - Weather and road type show statistically significant but weak associations with severity and abnormality type.
 - Traffic density does not show a significant relationship with abnormality frequency.
 - These results indicate association only, not causation.
+
+## Phase 5 - Benchmarking Validation
+
+### 5.4 - Severity Prediction
+
+| Model | Accuracy | Balanced Accuracy | Precision Macro | Recall Macro | F1 Macro | Precision Weighted | Recall Weighted | F1 Weighted | ROC AUC Macro OVR | ROC AUC Weighted OVR | Quadratic Weighted Kappa | Ordinal MAE | Inference Images/s | Inference ms/Image |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| resnet50 | 0.605769 | 0.653219 | 0.627373 | 0.653219 | 0.605735 | 0.637183 | 0.605769 | 0.584585 | 0.818581 | 0.802422 | 0.616294 | 0.435897 | 8.838274 | 113.144265 |
+| efficientnet_b0 | 0.631410 | 0.672893 | 0.655330 | 0.672893 | 0.629643 | 0.675698 | 0.631410 | 0.614208 | 0.831919 | 0.820642 | 0.591940 | 0.429487 | 9.061245 | 110.360107 |
+| convnext_tiny | 0.589744 | 0.625533 | 0.606818 | 0.625533 | 0.593272 | 0.614021 | 0.589744 | 0.578625 | 0.812605 | 0.798423 | 0.560556 | 0.464744 | 8.255720 | 121.128133 |
+| vit_b_16 | 0.519231 | 0.533567 | 0.525689 | 0.533567 | 0.520553 | 0.530375 | 0.519231 | 0.516543 | 0.730362 | 0.717411 | 0.400030 | 0.564103 | 9.510258 | 105.149621 |
+
+| Model | Severity | Precision | Recall | F1 Score | Support | AUC |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| resnet50 | minor | 0.680412 | 0.717391 | 0.698413 | 92 | 0.875840 |
+| resnet50 | moderate | 0.681159 | 0.348148 | 0.460784 | 135 | 0.709730 |
+| resnet50 | severe | 0.520548 | 0.894118 | 0.658009 | 85 | 0.870174 |
+| efficientnet_b0 | minor | 0.593750 | 0.826087 | 0.690909 | 92 | 0.872036 |
+| efficientnet_b0 | moderate | 0.791045 | 0.392593 | 0.524752 | 135 | 0.755932 |
+| efficientnet_b0 | severe | 0.581197 | 0.800000 | 0.673267 | 85 | 0.867790 |
+| convnext_tiny | minor | 0.670455 | 0.641304 | 0.655556 | 92 | 0.851038 |
+| convnext_tiny | moderate | 0.642857 | 0.400000 | 0.493151 | 135 | 0.718728 |
+| convnext_tiny | severe | 0.507143 | 0.835294 | 0.631111 | 85 | 0.868049 |
+| vit_b_16 | minor | 0.564103 | 0.478261 | 0.517647 | 92 | 0.763192 |
+| vit_b_16 | moderate | 0.549550 | 0.451852 | 0.495935 | 135 | 0.644947 |
+| vit_b_16 | severe | 0.463415 | 0.670588 | 0.548077 | 85 | 0.782949 |
+
+> **Note:** The best-performing model checkpoints have been saved in the `/models` folder, and the related evaluation figures have been saved in the `/figures` folder.
+

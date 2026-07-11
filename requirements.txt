@@ -7,3 +7,7 @@ matplotlib
 matplotlib-venn
 scipy
 ultralytics
+torch
+torchvision
+scikit-learn
+tabulate

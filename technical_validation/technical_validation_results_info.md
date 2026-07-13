@@ -331,6 +331,17 @@ Tamil Nadu samples: 51.49% of the dataset.
 
 ## Phase 5 - Benchmarking Validation
 
+### 5.1 - Object Detection
+
+| Model | Precision | Recall | F1-Score | mAP50 | mAP50-95 | Early Stopped At Epoch |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| YOLO11s | 0.527 | 0.465 | 0.4940625 | 0.481 | 0.222 | 46 |
+| YOLOv8s | 0.609 | 0.398 | 0.48139424 | 0.449 | 0.214 | 46 |
+| YOLO12s | 0.6613 | 0.449 | 0.534853103 | 0.492 | 0.224 | 44 |
+| YOLO12n | 0.675 | 0.398 | 0.500745573 | 0.489 | 0.231 | 45 |
+
+> **Note:** The relevant object-detection figures and trained model files have been added to their respective `/figures` and `/models` folders.
+
 ### 5.2/5.3 Image and Multi Label Classification
 
 6 class, Multi-label - surface depression, manhole, pothole, road patch failure, crack, miscellaneous abnormality

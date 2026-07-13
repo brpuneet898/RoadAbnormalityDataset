@@ -331,6 +331,27 @@ Tamil Nadu samples: 51.49% of the dataset.
 
 ## Phase 5 - Benchmarking Validation
 
+### 5.2 - Image Classification
+
+| Metric | convnext_tiny | efficientnet_b0 | resnet50 | vit_b_16 |
+| --- | ---: | ---: | ---: | ---: |
+| Exact-match accuracy | 0.248322 | 0.174497 | 0.184564 | 0.060403 |
+| Hamming accuracy | 0.803691 | 0.786913 | 0.763982 | 0.736018 |
+| Precision macro | 0.355861 | 0.344583 | 0.395501 | 0.258161 |
+| Recall macro | 0.526398 | 0.573307 | 0.558319 | 0.449843 |
+| F1 macro | 0.406522 | 0.413229 | 0.433456 | 0.316375 |
+| Precision micro | 0.532860 | 0.505710 | 0.470486 | 0.438053 |
+| Recall micro | 0.773196 | 0.798969 | 0.698454 | 0.765464 |
+| F1 micro | 0.630915 | 0.619381 | 0.562241 | 0.557223 |
+| Training seconds | 2193.997008 | 1359.233063 | 1596.615273 | 4641.274044 |
+| Inference seconds | 36.234247 | 28.897818 | 32.223555 | 35.631523 |
+| Inference images/second | 8.224264 | 10.312197 | 9.247893 | 8.363381 |
+| Best epoch | 6.0 | 1.0 | 3.0 | 20.0 |
+| Best validation loss | 0.772340 | 0.811768 | 0.822145 | 0.893948 |
+| AUC macro | 0.710334 | 0.701259 | 0.729413 | 0.576951 |
+
+> **Note:** The relevant image-classification figures and trained model files have been uploaded in their respective folders.
+
 ### 5.4 - Severity Prediction
 
 | Model | Accuracy | Balanced Accuracy | Precision Macro | Recall Macro | F1 Macro | Precision Weighted | Recall Weighted | F1 Weighted | ROC AUC Macro OVR | ROC AUC Weighted OVR | Quadratic Weighted Kappa | Ordinal MAE | Inference Images/s | Inference ms/Image |

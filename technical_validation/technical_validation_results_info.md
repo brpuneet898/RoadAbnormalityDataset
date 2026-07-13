@@ -331,7 +331,9 @@ Tamil Nadu samples: 51.49% of the dataset.
 
 ## Phase 5 - Benchmarking Validation
 
-### 5.2 - Image Classification
+### 5.2/5.3 Image and Multi Label Classification
+
+6 class, Multi-label - surface depression, manhole, pothole, road patch failure, crack, miscellaneous abnormality
 
 | Metric | convnext_tiny | efficientnet_b0 | resnet50 | vit_b_16 |
 | --- | ---: | ---: | ---: | ---: |
@@ -353,6 +355,8 @@ Tamil Nadu samples: 51.49% of the dataset.
 > **Note:** The relevant image-classification figures and trained model files have been uploaded in their respective folders.
 
 ### 5.4 - Severity Prediction
+
+3 types of Severity - minor, moderate, severe
 
 | Model | Accuracy | Balanced Accuracy | Precision Macro | Recall Macro | F1 Macro | Precision Weighted | Recall Weighted | F1 Weighted | ROC AUC Macro OVR | ROC AUC Weighted OVR | Quadratic Weighted Kappa | Ordinal MAE | Inference Images/s | Inference ms/Image |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |

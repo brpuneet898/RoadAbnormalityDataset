@@ -1,0 +1,15 @@
+Slice,Images,Dataset percentage,Dominant abnormality type,Dominant class percentage,Dominant severity
+Night,286,13.79,Manhole,35.66,moderate
+Rain / wet road,185,8.92,Pothole,28.11,severe
+Shadow,67,3.23,Surface depression,61.19,moderate
+Urban,1473,71.02,Surface depression,38.63,moderate
+Highway,7,0.34,Surface depression,57.14,moderate
+Rural,310,14.95,Surface depression,62.9,moderate
+Low light,17,0.82,Missing,35.29,moderate
+Tiny objects (<1%),148,7.14,Surface depression,27.03,minor
+Small objects (1%-<5%),677,32.64,Surface depression,35.75,minor
+Medium objects (5%-<15%),791,38.14,Surface depression,48.93,moderate
+Large objects (>=15%),368,17.74,Surface depression,57.61,severe
+State: Delhi,779,37.56,Surface depression,47.11,minor
+State: Maharashtra,227,10.95,Surface depression,28.63,moderate
+State: Tamil Nadu,1068,51.49,Surface depression,42.04,moderate

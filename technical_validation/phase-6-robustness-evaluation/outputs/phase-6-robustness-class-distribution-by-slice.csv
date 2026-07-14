@@ -1,0 +1,83 @@
+Slice,Rank,Abnormality Type,Count,Percentage
+Night,1,Manhole,102,35.66
+Night,2,Surface depression,90,31.47
+Night,3,Manhole; Surface depression,27,9.44
+Night,4,Road patch failure,25,8.74
+Night,5,Missing,10,3.5
+Night,6,Surface depression; Manhole,7,2.45
+Rain / wet road,1,Pothole,52,28.11
+Rain / wet road,2,Surface depression,45,24.32
+Rain / wet road,3,Pothole; Surface depression,22,11.89
+Rain / wet road,4,Manhole,20,10.81
+Rain / wet road,5,Road patch failure,11,5.95
+Rain / wet road,6,Manhole; Surface depression,7,3.78
+Shadow,1,Surface depression,41,61.19
+Shadow,2,Road patch failure,10,14.93
+Shadow,3,Pothole,8,11.94
+Shadow,4,Manhole,2,2.99
+Shadow,5,Road patch failure; Surface depression,2,2.99
+Shadow,6,Missing,1,1.49
+Urban,1,Surface depression,569,38.63
+Urban,2,Manhole,197,13.37
+Urban,3,Pothole,162,11.0
+Urban,4,Pothole; Surface depression,89,6.04
+Urban,5,Road patch failure,80,5.43
+Urban,6,Manhole; Surface depression,76,5.16
+Highway,1,Surface depression,4,57.14
+Highway,2,Pothole,1,14.29
+Highway,3,Road patch failure; Surface depression,1,14.29
+Highway,4,Surface depression; Road patch failure,1,14.29
+Rural,1,Surface depression,195,62.9
+Rural,2,Road patch failure,40,12.9
+Rural,3,Pothole,28,9.03
+Rural,4,Missing,10,3.23
+Rural,5,Pothole; Surface depression,9,2.9
+Rural,6,Surface depression; Road patch failure,6,1.94
+Low light,1,Missing,6,35.29
+Low light,2,Manhole,3,17.65
+Low light,3,Surface depression,3,17.65
+Low light,4,Road patch failure,1,5.88
+Low light,5,Manhole; Surface depression,1,5.88
+Low light,6,Road patch failure; Crack,1,5.88
+Tiny objects (<1%),1,Surface depression,40,27.03
+Tiny objects (<1%),2,Pothole,31,20.95
+Tiny objects (<1%),3,Manhole,31,20.95
+Tiny objects (<1%),4,Road patch failure,29,19.59
+Tiny objects (<1%),5,Pothole; Manhole,3,2.03
+Tiny objects (<1%),6,Road patch failure; Surface depression,2,1.35
+Small objects (1%-<5%),1,Surface depression,242,35.75
+Small objects (1%-<5%),2,Manhole,116,17.13
+Small objects (1%-<5%),3,Pothole,86,12.7
+Small objects (1%-<5%),4,Road patch failure,74,10.93
+Small objects (1%-<5%),5,Pothole; Surface depression,42,6.2
+Small objects (1%-<5%),6,Manhole; Surface depression,33,4.87
+Medium objects (5%-<15%),1,Surface depression,387,48.93
+Medium objects (5%-<15%),2,Manhole,76,9.61
+Medium objects (5%-<15%),3,Pothole,54,6.83
+Medium objects (5%-<15%),4,Manhole; Surface depression,52,6.57
+Medium objects (5%-<15%),5,Pothole; Surface depression,40,5.06
+Medium objects (5%-<15%),6,Road patch failure,36,4.55
+Large objects (>=15%),1,Surface depression,212,57.61
+Large objects (>=15%),2,Pothole,40,10.87
+Large objects (>=15%),3,Manhole; Surface depression,27,7.34
+Large objects (>=15%),4,Pothole; Surface depression,22,5.98
+Large objects (>=15%),5,Manhole,10,2.72
+Large objects (>=15%),6,Surface depression; Manhole,7,1.9
+State: Delhi,1,Surface depression,367,47.11
+State: Delhi,2,Pothole,92,11.81
+State: Delhi,3,Pothole; Surface depression,66,8.47
+State: Delhi,4,Road patch failure,42,5.39
+State: Delhi,5,Missing,42,5.39
+State: Delhi,6,Surface depression; Pothole,33,4.24
+State: Maharashtra,1,Surface depression,65,28.63
+State: Maharashtra,2,Manhole,49,21.59
+State: Maharashtra,3,Manhole; Surface depression,28,12.33
+State: Maharashtra,4,Pothole,18,7.93
+State: Maharashtra,5,Missing,10,4.41
+State: Maharashtra,6,Manhole; Road patch failure,7,3.08
+State: Tamil Nadu,1,Surface depression,449,42.04
+State: Tamil Nadu,2,Manhole,163,15.26
+State: Tamil Nadu,3,Pothole,101,9.46
+State: Tamil Nadu,4,Road patch failure,98,9.18
+State: Tamil Nadu,5,Manhole; Surface depression,65,6.09
+State: Tamil Nadu,6,Missing,38,3.56

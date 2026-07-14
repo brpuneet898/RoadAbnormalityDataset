@@ -397,6 +397,132 @@ Tamil Nadu samples: 51.49% of the dataset.
 
 > **Note:** The best-performing model checkpoints have been saved in the `/models` folder, and the related evaluation figures have been saved in the `/figures` folder.
 
+## Phase 6 - Robustness Evaluation
+
+This section evaluates dataset robustness across difficult acquisition conditions, road contexts, object-size groups, and state-wise subsets. The evaluation is metadata-based and does not require model retraining.
+
+### 6.1 - Robustness Slice Summary
+
+| Slice | Images | Dataset Percentage | Dominant Abnormality Type | Dominant Class Percentage | Dominant Severity |
+| --- | ---: | ---: | --- | ---: | --- |
+| Night | 286 | 13.79 | Manhole | 35.66 | moderate |
+| Rain / wet road | 185 | 8.92 | Pothole | 28.11 | severe |
+| Shadow | 67 | 3.23 | Surface depression | 61.19 | moderate |
+| Urban | 1473 | 71.02 | Surface depression | 38.63 | moderate |
+| Highway | 7 | 0.34 | Surface depression | 57.14 | moderate |
+| Rural | 310 | 14.95 | Surface depression | 62.90 | moderate |
+| Low light | 17 | 0.82 | Missing | 35.29 | moderate |
+| Tiny objects (<1%) | 148 | 7.14 | Surface depression | 27.03 | minor |
+| Small objects (1%-<5%) | 677 | 32.64 | Surface depression | 35.75 | minor |
+| Medium objects (5%-<15%) | 791 | 38.14 | Surface depression | 48.93 | moderate |
+| Large objects (>=15%) | 368 | 17.74 | Surface depression | 57.61 | severe |
+| State: Delhi | 779 | 37.56 | Surface depression | 47.11 | minor |
+| State: Maharashtra | 227 | 10.95 | Surface depression | 28.63 | moderate |
+| State: Tamil Nadu | 1068 | 51.49 | Surface depression | 42.04 | moderate |
+
+The dataset includes several robustness-relevant subsets such as night, wet-road, shadow, low-light, road-type, state-wise, and object-size slices. However, some difficult conditions such as highway and low-light are very small, so robustness claims for those slices should be interpreted cautiously.
+
+### 6.2 - State Coverage
+
+| State | Images | Dataset Percentage |
+| --- | ---: | ---: |
+| Tamil Nadu | 1068 | 51.49 |
+| Delhi | 779 | 37.56 |
+| Maharashtra | 227 | 10.95 |
+
+Tamil Nadu and Delhi provide most of the geographic coverage, while Maharashtra has a smaller representation. This supports state-wise robustness evaluation, but wider geographic sampling would improve generalization.
+
+### 6.3 - Top Class Distribution by Robustness Slice
+
+| Slice | Rank | Abnormality Type | Count | Percentage |
+| --- | ---: | --- | ---: | ---: |
+| Night | 1 | Manhole | 102 | 35.66 |
+| Night | 2 | Surface depression | 90 | 31.47 |
+| Night | 3 | Manhole; Surface depression | 27 | 9.44 |
+| Night | 4 | Road patch failure | 25 | 8.74 |
+| Night | 5 | Missing | 10 | 3.50 |
+| Night | 6 | Surface depression; Manhole | 7 | 2.45 |
+| Rain / wet road | 1 | Pothole | 52 | 28.11 |
+| Rain / wet road | 2 | Surface depression | 45 | 24.32 |
+| Rain / wet road | 3 | Pothole; Surface depression | 22 | 11.89 |
+| Rain / wet road | 4 | Manhole | 20 | 10.81 |
+| Rain / wet road | 5 | Road patch failure | 11 | 5.95 |
+| Rain / wet road | 6 | Manhole; Surface depression | 7 | 3.78 |
+| Shadow | 1 | Surface depression | 41 | 61.19 |
+| Shadow | 2 | Road patch failure | 10 | 14.93 |
+| Shadow | 3 | Pothole | 8 | 11.94 |
+| Shadow | 4 | Manhole | 2 | 2.99 |
+| Shadow | 5 | Road patch failure; Surface depression | 2 | 2.99 |
+| Shadow | 6 | Missing | 1 | 1.49 |
+| Urban | 1 | Surface depression | 569 | 38.63 |
+| Urban | 2 | Manhole | 197 | 13.37 |
+| Urban | 3 | Pothole | 162 | 11.00 |
+| Urban | 4 | Pothole; Surface depression | 89 | 6.04 |
+| Urban | 5 | Road patch failure | 80 | 5.43 |
+| Urban | 6 | Manhole; Surface depression | 76 | 5.16 |
+| Highway | 1 | Surface depression | 4 | 57.14 |
+| Highway | 2 | Pothole | 1 | 14.29 |
+| Highway | 3 | Road patch failure; Surface depression | 1 | 14.29 |
+| Highway | 4 | Surface depression; Road patch failure | 1 | 14.29 |
+| Rural | 1 | Surface depression | 195 | 62.90 |
+| Rural | 2 | Road patch failure | 40 | 12.90 |
+| Rural | 3 | Pothole | 28 | 9.03 |
+| Rural | 4 | Missing | 10 | 3.23 |
+| Rural | 5 | Pothole; Surface depression | 9 | 2.90 |
+| Rural | 6 | Surface depression; Road patch failure | 6 | 1.94 |
+| Low light | 1 | Missing | 6 | 35.29 |
+| Low light | 2 | Manhole | 3 | 17.65 |
+| Low light | 3 | Surface depression | 3 | 17.65 |
+| Low light | 4 | Road patch failure | 1 | 5.88 |
+| Low light | 5 | Manhole; Surface depression | 1 | 5.88 |
+| Low light | 6 | Road patch failure; Crack | 1 | 5.88 |
+| Tiny objects (<1%) | 1 | Surface depression | 40 | 27.03 |
+| Tiny objects (<1%) | 2 | Pothole | 31 | 20.95 |
+| Tiny objects (<1%) | 3 | Manhole | 31 | 20.95 |
+| Tiny objects (<1%) | 4 | Road patch failure | 29 | 19.59 |
+| Tiny objects (<1%) | 5 | Pothole; Manhole | 3 | 2.03 |
+| Tiny objects (<1%) | 6 | Road patch failure; Surface depression | 2 | 1.35 |
+| Small objects (1%-<5%) | 1 | Surface depression | 242 | 35.75 |
+| Small objects (1%-<5%) | 2 | Manhole | 116 | 17.13 |
+| Small objects (1%-<5%) | 3 | Pothole | 86 | 12.70 |
+| Small objects (1%-<5%) | 4 | Road patch failure | 74 | 10.93 |
+| Small objects (1%-<5%) | 5 | Pothole; Surface depression | 42 | 6.20 |
+| Small objects (1%-<5%) | 6 | Manhole; Surface depression | 33 | 4.87 |
+| Medium objects (5%-<15%) | 1 | Surface depression | 387 | 48.93 |
+| Medium objects (5%-<15%) | 2 | Manhole | 76 | 9.61 |
+| Medium objects (5%-<15%) | 3 | Pothole | 54 | 6.83 |
+| Medium objects (5%-<15%) | 4 | Manhole; Surface depression | 52 | 6.57 |
+| Medium objects (5%-<15%) | 5 | Pothole; Surface depression | 40 | 5.06 |
+| Medium objects (5%-<15%) | 6 | Road patch failure | 36 | 4.55 |
+| Large objects (>=15%) | 1 | Surface depression | 212 | 57.61 |
+| Large objects (>=15%) | 2 | Pothole | 40 | 10.87 |
+| Large objects (>=15%) | 3 | Manhole; Surface depression | 27 | 7.34 |
+| Large objects (>=15%) | 4 | Pothole; Surface depression | 22 | 5.98 |
+| Large objects (>=15%) | 5 | Manhole | 10 | 2.72 |
+| Large objects (>=15%) | 6 | Surface depression; Manhole | 7 | 1.90 |
+| State: Delhi | 1 | Surface depression | 367 | 47.11 |
+| State: Delhi | 2 | Pothole | 92 | 11.81 |
+| State: Delhi | 3 | Pothole; Surface depression | 66 | 8.47 |
+| State: Delhi | 4 | Road patch failure | 42 | 5.39 |
+| State: Delhi | 5 | Missing | 42 | 5.39 |
+| State: Delhi | 6 | Surface depression; Pothole | 33 | 4.24 |
+| State: Maharashtra | 1 | Surface depression | 65 | 28.63 |
+| State: Maharashtra | 2 | Manhole | 49 | 21.59 |
+| State: Maharashtra | 3 | Manhole; Surface depression | 28 | 12.33 |
+| State: Maharashtra | 4 | Pothole | 18 | 7.93 |
+| State: Maharashtra | 5 | Missing | 10 | 4.41 |
+| State: Maharashtra | 6 | Manhole; Road patch failure | 7 | 3.08 |
+| State: Tamil Nadu | 1 | Surface depression | 449 | 42.04 |
+| State: Tamil Nadu | 2 | Manhole | 163 | 15.26 |
+| State: Tamil Nadu | 3 | Pothole | 101 | 9.46 |
+| State: Tamil Nadu | 4 | Road patch failure | 98 | 9.18 |
+| State: Tamil Nadu | 5 | Manhole; Surface depression | 65 | 6.09 |
+| State: Tamil Nadu | 6 | Missing | 38 | 3.56 |
+
+The robustness slices show that surface depression is dominant in most settings, while night images are more manhole-heavy and wet-road images are more pothole-heavy. This helps demonstrate dataset diversity across environmental and geographic conditions, while also identifying low-sample slices that should be expanded in future dataset versions.
+
+> **Note:** Robustness slices include night, wet-road/rain proxy, shadow, urban, highway, rural, low-light, object-size groups, and state-wise subsets.
+
 ## Phase 7 - Dataset Split Strategy
 
 ### Random-size Reference

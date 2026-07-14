@@ -397,3 +397,47 @@ Tamil Nadu samples: 51.49% of the dataset.
 
 > **Note:** The best-performing model checkpoints have been saved in the `/models` folder, and the related evaluation figures have been saved in the `/figures` folder.
 
+## Phase 7 - Dataset Split Strategy
+
+### Random-size Reference
+
+| Split | Percentage | Images |
+| --- | ---: | ---: |
+| Total | 100% | 2074 |
+| Train | 70% | 1452 |
+| Val | 15% | 311 |
+| Test | 15% | 311 |
+
+### Region-wise Split
+
+| Metric | Count |
+| --- | ---: |
+| Unique regions | 5 |
+| Train regions | 4 |
+| Val regions | 1 |
+| Test regions | 0 |
+
+### State-wise Split
+
+| Metric | Count |
+| --- | ---: |
+| Unique states | 3 |
+| Train states | 2 |
+| Val states | 0 |
+| Test states | 1 |
+
+### Leave-One-State-Out Evaluation
+
+| Held-out State | Train Images | Test Images |
+| --- | ---: | ---: |
+| Delhi | 1295 | 779 |
+| Maharashtra | 1847 | 227 |
+| Tamil Nadu | 1006 | 1068 |
+
+> **Final Note:** A script named `package_dataset_splits.py` is provided for creating the dataset split ZIP files locally. Users are requested to run the script as follows:
+>
+> ```bash
+> python package_dataset_splits.py --allow-missing-images
+> ```
+>
+> This will create each of the dataset splits mentioned above appropriately. Since each generated ZIP file is approximately 3 GB to 5 GB in size, the ZIP files have not been uploaded officially. The script is provided so users can generate the split archives on their own system when needed.

@@ -568,7 +568,7 @@ The robustness slices show that surface depression is dominant in most settings,
 >
 > This will create each of the dataset splits mentioned above appropriately. Since each generated ZIP file is approximately 3 GB to 5 GB in size, the ZIP files have not been uploaded officially. The script is provided so users can generate the split archives on their own system when needed.
 
-## Phase 8 - Bias Analysis 
+## Phase 8 - Bias Analysis
 
 ### Dataset Bias Analysis Summary
 

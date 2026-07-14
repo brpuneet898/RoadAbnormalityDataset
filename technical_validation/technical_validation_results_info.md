@@ -595,3 +595,95 @@ Object-size imbalance is present but less severe than class, lighting, weather, 
 
 > **Note:** Class distribution, state/district distribution, weather distribution, lighting distribution, and bounding-box summary statistics are also reported in earlier sections of this document. Phase 8 focuses on the bias implications and additional imbalance indicators.
 
+## Phase 9 - Reproducibility
+
+This section records the parameters and environment details required to reproduce the dataset validation, split generation, and benchmark experiments.
+
+### 9.1 - Reproducibility Parameters
+
+| Item | Value |
+| --- | --- |
+| Random seed | 42 |
+| Dataset split seed | 42 |
+| Random split ratio | Train 70%, Validation 15%, Test 15% |
+| Image classification split ratio | Train 70%, Validation 15%, Test 15% |
+| Severity prediction split ratio | Train 70%, Validation 15%, Test 15% |
+| Image size for classification models | 224 × 224 |
+| Image size for object detection | 640 × 640 |
+| Batch size for classification models | 16 |
+| Batch size for object detection | 16 |
+| Classification epochs | 30 |
+| Severity prediction epochs | 30 |
+| Object detection epochs | 100 |
+| Early stopping patience - classification/severity | 7 |
+| Early stopping patience - object detection | 30 |
+| Classification threshold | 0.5 |
+| Validation fraction | 0.15 |
+| Test fraction | 0.15 |
+
+### 9.2 - Training Configuration
+
+| Task | Models | Loss Function | Optimizer | Learning Rate | Weight Decay | Scheduler |
+| --- | --- | --- | --- | ---: | ---: | --- |
+| Image classification | ResNet-50, EfficientNet-B0, ConvNeXt-Tiny, ViT-B/16 | BCEWithLogitsLoss with positive-class weights | AdamW | 0.0003 | 0.0001 | ReduceLROnPlateau, factor 0.3, patience 2 |
+| Severity prediction | ResNet-50, EfficientNet-B0, ConvNeXt-Tiny, ViT-B/16 | CrossEntropyLoss with class weights | AdamW | 0.0003 | 0.0001 | ReduceLROnPlateau, factor 0.3, patience 2 |
+| Object detection | YOLO-based detector through Ultralytics | Ultralytics YOLO training loss | Ultralytics default optimizer/training configuration | Ultralytics default | Ultralytics default | Ultralytics default |
+
+### 9.3 - Hardware and Runtime
+
+| Item | Value |
+| --- | --- |
+| Device selection | Auto-selected in scripts |
+| Supported training devices | CUDA GPU, Apple MPS, or CPU |
+| Mixed precision | Enabled when CUDA is available |
+| DataLoader workers - classification/severity | 4 |
+| DataLoader workers - object detection | 8 |
+| cuDNN benchmark | Enabled |
+| Current inspected Python version | Python 3.14.5 |
+
+### 9.4 - Software Requirements
+
+The project dependencies are listed in `requirements.txt`.
+
+| Package |
+| --- |
+| pandas |
+| Pillow |
+| pillow-heif |
+| imagehash |
+| numpy |
+| matplotlib |
+| matplotlib-venn |
+| scipy |
+| ultralytics |
+| torch |
+| torchvision |
+| scikit-learn |
+| tabulate |
+| iterative-stratification |
+
+> **Note:** Package names are documented in `requirements.txt`. Exact package versions should be recorded from the execution environment using `pip freeze` when the experiments are rerun.
+
+### 9.5 - Repository and Code Version
+
+| Item | Value |
+| --- | --- |
+| GitHub repository | `https://github.com/brpuneet898/RoadAbnormalityDataset.git` |
+| Branch | `main` |
+
+### 9.6 - Dataset Metadata Checksums
+
+| File | SHA-256 Checksum |
+| --- | --- |
+| `layer_0_raw_images/layer_0_raw_image_metadata.csv` | `4923B85C0E2FC1CDFA3E932E3286CEEE17A1A26DBB8B7C76A754096F89A708E5` |
+| `layer_1_annotations/layer_1_annotation_metadata.csv` | `6AAC8F6888105A806AE145A53F9528ADD74BAA30342AA1987885D11028781E8C` |
+| `layer_2_metadata/layer_2_semantic_metadata.csv` | `5C7C35451D2F21725F08CCC1B5EE5AAAADB51CFF7ACDD344E58858415680B632` |
+| `layer_3_geospatial/layer_3_geospatial_metadata.csv` | `D9BECA0BC247EFBC159FB1ACEBCCE430AF08D268436708FF4513805286530712` |
+
+### 9.7 - Reproducibility Notes
+
+- All scripts use a default random seed of `42` for deterministic data splitting and repeatable experiment setup.
+- Training scripts automatically select CUDA, MPS, or CPU depending on the available hardware.
+- Benchmark models, generated figures, validation outputs, and dataset splits can be regenerated from the scripts included in the repository.
+- Dataset split archives are intentionally not uploaded because of their large size; users can regenerate them using the Phase 7 packaging script.
+- Recording exact package versions with `pip freeze` and preserving the listed metadata checksums is recommended for full experiment reproducibility.

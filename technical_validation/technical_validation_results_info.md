@@ -441,3 +441,157 @@ Tamil Nadu samples: 51.49% of the dataset.
 > ```
 >
 > This will create each of the dataset splits mentioned above appropriately. Since each generated ZIP file is approximately 3 GB to 5 GB in size, the ZIP files have not been uploaded officially. The script is provided so users can generate the split archives on their own system when needed.
+
+## Phase 8 - Bias Analysis 
+
+### Dataset Bias Analysis Summary
+
+| Dataset Component | Count |
+| --- | ---: |
+| Unique raw images | 2074 |
+| Annotation instances | 3391 |
+| Layer 2 metadata rows | 2074 |
+| Layer 3 geospatial rows | 2074 |
+
+The bias analysis was performed across raw images, annotation instances, semantic metadata, and geospatial metadata to identify class, regional, environmental, and object-size skews.
+
+### 8.1 - Class Imbalance Indicators
+
+| Dimension | Unit | Total | Categories | Largest Count | Smallest Count | Max-Min Ratio | Coefficient of Variation | Normalized Entropy | Largest Share (%) |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Class - annotation instances | annotation instances | 3391 | 6 | 1837 | 24 | 76.5417 | 1.0844 | 0.6941 | 54.17 |
+| Class - unique images | unique images | 2518 | 6 | 1294 | 24 | 53.9167 | 1.0239 | 0.7189 | 51.39 |
+| Class - Layer 2 rows | metadata rows | 2074 | 47 | 881 | 1 | 881.0000 | 3.0357 | 0.5651 | 42.48 |
+
+Surface depression dominates the dataset, while crack and miscellaneous abnormality are highly underrepresented. This may bias trained models toward frequent abnormality classes and reduce sensitivity for rare classes.
+
+### 8.2 - Unique-image Class Distribution
+
+| Rank | Abnormality Type | Count | Percentage | Unit |
+| ---: | --- | ---: | ---: | --- |
+| 1 | Surface depression | 1294 | 51.39 | unique images |
+| 2 | Manhole | 476 | 18.90 | unique images |
+| 3 | Pothole | 450 | 17.87 | unique images |
+| 4 | Road patch failure | 244 | 9.69 | unique images |
+| 5 | Crack | 30 | 1.19 | unique images |
+| 6 | Miscellaneous abnormality | 24 | 0.95 | unique images |
+
+The same class imbalance pattern appears at the unique-image level, confirming that the skew is not only due to repeated annotations but also due to image-level representation.
+
+### 8.3 - Regional Imbalance Indicators
+
+| Dimension | Unit | Total | Categories | Largest Count | Smallest Count | Max-Min Ratio | Coefficient of Variation | Normalized Entropy | Largest Share (%) |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Region - state | images | 2074 | 3 | 1068 | 227 | 4.7048 | 0.5047 | 0.8663 | 51.49 |
+| Region - district | images | 2074 | 5 | 779 | 227 | 3.4317 | 0.4667 | 0.9391 | 37.56 |
+
+The dataset has moderate regional concentration, with Tamil Nadu contributing over half of all images and North West Delhi forming the largest district-level group.
+
+### 8.4 - State-District Distribution
+
+| State | District | Image Count | Dataset Percentage |
+| --- | --- | ---: | ---: |
+| Delhi | North West | 779 | 37.56 |
+| Tamil Nadu | Chennai | 434 | 20.93 |
+| Tamil Nadu | Chengalpattu | 319 | 15.38 |
+| Tamil Nadu | Tiruvallur | 315 | 15.19 |
+| Maharashtra | Sangli | 227 | 10.95 |
+
+This shows that each state is represented by a limited number of districts, so geographic generalization outside these districts should be treated carefully.
+
+### 8.5 - Seasonal Imbalance
+
+| Rank | Season | Count | Percentage | Unit |
+| ---: | --- | ---: | ---: | --- |
+| 1 | summer | 1321 | 63.69 | images |
+| 2 | winter | 607 | 29.27 | images |
+| 3 | monsoon | 128 | 6.17 | images |
+| 4 | post_monsoon | 18 | 0.87 | images |
+
+| Dimension | Unit | Total | Categories | Largest Count | Smallest Count | Max-Min Ratio | Coefficient of Variation | Normalized Entropy | Largest Share (%) |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Seasonal imbalance | images | 2074 | 4 | 1321 | 18 | 73.3889 | 0.9904 | 0.6204 | 63.69 |
+
+The dataset is strongly summer-heavy, while monsoon and post-monsoon samples are limited. This may reduce robustness for wet-season road appearances and seasonal lighting differences.
+
+### 8.6 - Lighting Imbalance Indicators
+
+| Dimension | Unit | Total | Categories | Largest Count | Smallest Count | Max-Min Ratio | Coefficient of Variation | Normalized Entropy | Largest Share (%) |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Lighting imbalance | images | 2074 | 4 | 1704 | 17 | 100.2353 | 1.3344 | 0.4219 | 82.16 |
+
+Daylight images dominate the dataset, so model performance may be stronger under daylight conditions than in low-light, shadow, or night-time scenarios.
+
+### 8.7 - Weather Imbalance Indicators
+
+| Dimension | Unit | Total | Categories | Largest Count | Smallest Count | Max-Min Ratio | Coefficient of Variation | Normalized Entropy | Largest Share (%) |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Weather imbalance | images | 2074 | 3 | 1835 | 54 | 33.9815 | 1.1723 | 0.3813 | 88.48 |
+
+Clear and dry conditions dominate the dataset, so the dataset may underrepresent visual road-abnormality patterns under cloudy or wet-road conditions.
+
+### 8.8 - Object-size Distribution
+
+| Rank | Object Size | Count | Percentage | Unit |
+| ---: | --- | ---: | ---: | --- |
+| 1 | Small (1%-<5%) | 1454 | 42.88 | annotation instances |
+| 2 | Medium (5%-<15%) | 994 | 29.31 | annotation instances |
+| 3 | Tiny (<1%) | 560 | 16.51 | annotation instances |
+| 4 | Large (>=15%) | 383 | 11.29 | annotation instances |
+
+Small and medium objects form most annotations, while large objects are less frequent. This may influence object-detection performance across different abnormality sizes.
+
+### 8.9 - Relative-area Descriptive Statistics
+
+| Metric | Value |
+| --- | ---: |
+| Valid boxes | 3391.0000 |
+| Invalid or missing boxes | 0.0000 |
+| Mean relative area | 0.0715 |
+| Median relative area | 0.0378 |
+| Standard deviation relative area | 0.1030 |
+| Minimum relative area | 0.0006 |
+| 25th percentile | 0.0145 |
+| 75th percentile | 0.0846 |
+| 90th percentile | 0.1634 |
+| 95th percentile | 0.2569 |
+| Maximum relative area | 0.9746 |
+
+The median relative area is much smaller than the mean, indicating a right-skewed object-size distribution with many small objects and a smaller number of very large abnormalities.
+
+### 8.10 - Object Size by Abnormality Class
+
+| Abnormality Type | Tiny (<1%) | Small (1%-<5%) | Medium (5%-<15%) | Large (>=15%) | Total |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Surface depression | 166 | 705 | 680 | 286 | 1837 |
+| Pothole | 190 | 279 | 114 | 56 | 639 |
+| Manhole | 120 | 266 | 118 | 19 | 523 |
+| Road patch failure | 81 | 187 | 58 | 9 | 335 |
+| Crack | 2 | 13 | 9 | 9 | 33 |
+| Miscellaneous abnormality | 1 | 4 | 15 | 4 | 24 |
+
+Surface depression contributes the largest number of medium and large objects, while potholes, manholes, and road patch failures are more concentrated in tiny and small sizes.
+
+### 8.11 - Within-class Object-size Percentages
+
+| Abnormality Type | Tiny (<1%) | Small (1%-<5%) | Medium (5%-<15%) | Large (>=15%) | Total (%) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Crack | 6.06 | 39.39 | 27.27 | 27.27 | 99.99 |
+| Manhole | 22.94 | 50.86 | 22.56 | 3.63 | 99.99 |
+| Miscellaneous abnormality | 4.17 | 16.67 | 62.50 | 16.67 | 100.01 |
+| Pothole | 29.73 | 43.66 | 17.84 | 8.76 | 99.99 |
+| Road patch failure | 24.18 | 55.82 | 17.31 | 2.69 | 100.00 |
+| Surface depression | 9.04 | 38.38 | 37.02 | 15.57 | 100.01 |
+
+Within-class size profiles differ noticeably: potholes and road patch failures are often tiny or small, while miscellaneous abnormalities are mostly medium-sized in this dataset.
+
+### 8.12 - Object-size Imbalance Indicators
+
+| Dimension | Unit | Total | Categories | Largest Count | Smallest Count | Max-Min Ratio | Coefficient of Variation | Normalized Entropy | Largest Share (%) |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Object size | annotation instances | 3391 | 4 | 1454 | 383 | 3.7963 | 0.4891 | 0.9136 | 42.88 |
+
+Object-size imbalance is present but less severe than class, lighting, weather, or seasonal imbalance. The distribution still favors small objects, which should be considered when evaluating detection performance.
+
+> **Note:** Class distribution, state/district distribution, weather distribution, lighting distribution, and bounding-box summary statistics are also reported in earlier sections of this document. Phase 8 focuses on the bias implications and additional imbalance indicators.
+

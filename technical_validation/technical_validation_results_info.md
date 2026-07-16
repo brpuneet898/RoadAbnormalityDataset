@@ -349,6 +349,8 @@ Tamil Nadu samples: 51.49% of the dataset.
 
 ### 5.1 - Object Detection
 
+- The purpose of the benchmark experiments is to validate that the proposed dataset can be effectively used with widely adopted object detection architectures under a common training and evaluation protocol. These experiments are intended to establish reproducible baseline performance rather than achieve state-of-the-art accuracy. The reported results provide reference baselines for future research and demonstrate that the dataset supports standard object detection pipelines while presenting a realistic and sufficiently challenging detection task.
+
 | Model | Precision | Recall | F1-Score | mAP50 | mAP50-95 | Early Stopped At Epoch |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | YOLO11s | 0.527 | 0.465 | 0.4940625 | 0.481 | 0.222 | 46 |
@@ -360,7 +362,9 @@ Tamil Nadu samples: 51.49% of the dataset.
 | YOLO26s | 0.598 | 0.355 | 0.445519412 | 0.412 | 0.173 | 45 |
 | YOLO10s | 0.59 | 0.381 | 0.463007209 | 0.436 | 0.179 | 42 |
 
-> **Note:** The relevant object-detection figures and trained model files have been added to their respective `/figures` and `/models` folders.
+- The evaluated YOLO models achieved mAP50 values ranging from 0.412 to 0.492, indicating that the dataset is suitable for training and evaluating modern object detection models. The moderate performance reflects the inherent difficulty of the dataset, which includes multiple abnormality categories, substantial class imbalance, diverse environmental conditions, and considerable variation in object size and appearance. These baseline results are intended as reference benchmarks for future comparisons rather than optimized performance limits.
+
+> **Note:** The relevant object-detection figures and trained model files have been added to their respective `/figures` and `/models` folders. The benchmark models are provided as reproducible baseline implementations to facilitate future comparisons and improvements on the dataset.
 
 ### 5.2/5.3 Image and Multi Label Classification
 

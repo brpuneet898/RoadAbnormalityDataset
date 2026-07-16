@@ -368,6 +368,8 @@ Tamil Nadu samples: 51.49% of the dataset.
 
 ### 5.2/5.3 Image and Multi Label Classification
 
+- The image classification experiments were conducted to establish reproducible baseline performance on the proposed multi-label classification task. Since images may contain multiple road abnormalities simultaneously, evaluation focuses primarily on threshold-independent and label-wise metrics such as macro F1-score, micro F1-score, and AUC, which provide a more informative assessment than exact-match accuracy for multi-label datasets.
+
 6 class, Multi-label - surface depression, manhole, pothole, road patch failure, crack, miscellaneous abnormality
 
 | Metric | convnext_tiny | efficientnet_b0 | resnet50 | vit_b_16 |
@@ -387,7 +389,9 @@ Tamil Nadu samples: 51.49% of the dataset.
 | Best validation loss | 0.772340 | 0.811768 | 0.822145 | 0.893948 |
 | AUC macro | 0.710334 | 0.701259 | 0.729413 | 0.576951 |
 
-> **Note:** The relevant image-classification figures and trained model files have been uploaded in their respective folders.
+- The exact-match accuracy values are relatively low because this metric requires every label associated with an image to be predicted correctly for the prediction to be considered correct. In multi-label classification, even a single missed or additional label causes the entire prediction to be counted as incorrect. Therefore, macro F1-score, micro F1-score, and AUC provide a more representative evaluation of model performance. The obtained AUC values of up to 0.729 and micro F1-scores of up to 0.631 demonstrate that the dataset supports effective multi-label learning while presenting a realistic and challenging classification problem.
+
+> **Note:** The relevant image-classification figures and trained model files have been uploaded in their respective folders. These results serve as baseline benchmarks for future comparison, with macro F1-score, micro F1-score, and AUC considered the primary evaluation metrics for this multi-label classification task.
 
 ### 5.4 - Severity Prediction
 

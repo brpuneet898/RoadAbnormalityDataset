@@ -395,6 +395,8 @@ Tamil Nadu samples: 51.49% of the dataset.
 
 ### 5.4 - Severity Prediction
 
+- The severity prediction benchmark is evaluated using overall classification metrics together with class-wise precision, recall, F1-score, ROC analysis, and confusion matrices to provide a comprehensive assessment of model performance across the three severity levels.
+
 3 types of Severity - minor, moderate, severe
 
 | Model | Accuracy | Balanced Accuracy | Precision Macro | Recall Macro | F1 Macro | Precision Weighted | Recall Weighted | F1 Weighted | ROC AUC Macro OVR | ROC AUC Weighted OVR | Quadratic Weighted Kappa | Ordinal MAE | Inference Images/s | Inference ms/Image |
@@ -419,7 +421,9 @@ Tamil Nadu samples: 51.49% of the dataset.
 | vit_b_16 | moderate | 0.549550 | 0.451852 | 0.495935 | 135 | 0.644947 |
 | vit_b_16 | severe | 0.463415 | 0.670588 | 0.548077 | 85 | 0.782949 |
 
-> **Note:** The best-performing model checkpoints have been saved in the `/models` folder, and the related evaluation figures have been saved in the `/figures` folder.
+- In addition to the quantitative metrics reported above, confusion matrices, normalized confusion matrices, ROC curves, confidence distribution plots, and training curves were generated for each evaluated model. The confusion matrices provide class-wise insight into prediction errors, while the ROC curves illustrate the discriminative ability of the classifiers across the three severity categories. Overall, the models distinguish the minor and severe classes more reliably than the moderate class, which exhibits the highest level of confusion because its visual characteristics frequently overlap with the neighboring severity levels. This behavior is expected given the gradual progression of road damage severity and indicates that most prediction errors occur between adjacent severity categories rather than between the extreme classes.
+
+> **Note:** The best-performing model checkpoints have been saved in the `/models` folder. For each evaluated model, the corresponding confusion matrix, normalized confusion matrix, ROC curves, confidence distribution plots, and training curves are provided in the `/figures` folder to support detailed analysis of class-wise performance and model behavior.
 
 ## Phase 6 - Robustness Evaluation
 

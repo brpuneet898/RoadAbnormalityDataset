@@ -52,6 +52,8 @@
 | Extra IDs in Layer 2   |     0 |
 | Extra IDs in Layer 3   |     0 |
 
+- All 2,074 images have corresponding Layer 2 metadata entries. The reported 90 missing values refer only to intentionally empty abnormality-specific semantic attributes for negative images and should not be interpreted as missing metadata records.
+
 > **Note:** The Venn diagram image has been saved in the `/figures` folder.
 
 ### 1.4 - Missing Value Analysis
@@ -63,7 +65,9 @@
 | Layer 2 |             90 |
 | Layer 3 |              0 |
 
-> **Note:** In Layer 2, fields were left empty only for images for which annotations could not be provided.
+> **Note:** The 90 missing values in Layer 2 correspond to images that intentionally contain no road abnormalities. These images were retained as negative road scenes, and therefore abnormality-specific semantic fields were intentionally left empty. All 2,074 images have valid Layer 2 metadata records; only the abnormality-related fields are empty for these negative samples.
+
+- The missing values do not indicate incomplete metadata or annotation errors; they represent intentionally unannotated negative samples (images without visible road abnormalities) included to improve dataset diversity and support realistic model evaluation.
 
 ### 1.5 - Label Consistency
 

@@ -285,7 +285,6 @@ Annotation accuracy was assessed by computing the mean Intersection over Union (
 | Surface depression; Pothole; Road patch failure |     2 |     0.0010 |       0.0000 |       0.0023 |
 | Surface depression; Road patch failure          |    33 |     0.0159 |       0.0105 |       0.0213 |
 | Surface depression; Road patch failure; Manhole |     1 |     0.0005 |       0.0000 |       0.0014 |
-| NaN                                             |    90 |     0.0434 |       0.0346 |       0.0522 |
 
 | Severity | Count | Proportion | 95% CI Lower | 95% CI Upper |
 | -------- | ----: | ---------: | -----------: | -----------: |
@@ -316,6 +315,8 @@ Tamil Nadu samples: 51.49% of the dataset.
 - Road abnormality appearance can vary by climate, construction material, maintenance practices, and urban planning patterns, so this state-level imbalance may introduce regional bias.
 - Additional samples from underrepresented states and districts would improve geographic diversity and make the dataset more representative across India.
 
+- Since the dataset covers three states and five districts, the reported benchmark results should be interpreted within the context of this geographic coverage. Additional data from other regions of India would further strengthen nationwide generalization.
+
 ### 4.3 - Distribution Comparison
 
 | Distribution | Chi-square | Degrees of freedom | P-value | Significant | Cramér's V | Effect | Low expected cells | Sample size |
@@ -324,13 +325,14 @@ Tamil Nadu samples: 51.49% of the dataset.
 | Severity | 85.5020 | 4 | < 0.0001 | Yes | 0.1402 | Weak | 0/9 | 2074 |
 | Road Type | 360.6529 | 6 | < 0.0001 | Yes | 0.2925 | Weak | 3/12 | 2074 |
 
+- Statistical Assumption: The chi-square analyses should be interpreted with appropriate caution because some contingency tables contain rare categories with low expected frequencies. In particular, the class distribution analysis includes 102 of 138 cells with expected counts below 5, indicating that the assumptions of the chi-square test are only partially satisfied. Consequently, while the reported p-values indicate statistically significant differences, the results should be interpreted together with the reported effect sizes (Cramér's V) and descriptive statistics.
 - All three distributions show statistically significant differences, with p-values below 0.0001.
 - The class distribution is significantly imbalanced, which is expected because surface depression and pothole-related categories occur much more frequently than rare classes such as crack and miscellaneous abnormality.
 - The severity distribution is also statistically significant, but the effect size is weak, indicating that the imbalance exists but is not extremely strong.
 - The road type distribution shows a significant difference, mainly due to the high number of urban samples compared with highway, residential, and rural samples.
 - Cramér's V values are in the weak-effect range for all three tests, meaning the differences are statistically detectable but the practical association strength is limited.
-- The class distribution has many low expected cells, so its chi-square result should be interpreted carefully because several rare multi-label class combinations have very small counts.
-- For future improvement, collecting more samples from rare abnormality classes, highway roads, and underrepresented combinations would make the dataset more balanced and statistically robust.
+- The class distribution contains 102 of 138 expected cell counts below 5, indicating that the assumptions of the chi-square test are only partially satisfied because of the presence of rare abnormality categories and infrequent multi-label combinations. Therefore, the chi-square results should be interpreted with caution and considered alongside the reported effect sizes (Cramér's V) and descriptive statistics.
+- Future dataset versions with increased representation of rare abnormality classes are expected to improve compliance with the assumptions of contingency-table analyses and provide more robust inferential statistics.
 
 ### 4.4 - Correlation Analysis
 
@@ -458,7 +460,7 @@ The dataset includes several robustness-relevant subsets such as night, wet-road
 | Delhi | 779 | 37.56 |
 | Maharashtra | 227 | 10.95 |
 
-Tamil Nadu and Delhi provide most of the geographic coverage, while Maharashtra has a smaller representation. This supports state-wise robustness evaluation, but wider geographic sampling would improve generalization.
+- Tamil Nadu and Delhi provide most of the geographic coverage, while Maharashtra has a smaller representation. This supports state-wise robustness evaluation within the sampled regions; however, the dataset does not capture the full geographic diversity of India, and wider sampling across additional states and districts would improve nationwide generalization.
 
 ### 6.3 - Top Class Distribution by Robustness Slice
 
@@ -746,6 +748,10 @@ Within-class size profiles differ noticeably: potholes and road patch failures a
 | Object size | annotation instances | 3391 | 4 | 1454 | 383 | 3.7963 | 0.4891 | 0.9136 | 42.88 |
 
 Object-size imbalance is present but less severe than class, lighting, weather, or seasonal imbalance. The distribution still favors small objects, which should be considered when evaluating detection performance.
+
+### 8.13 Dataset Limitations
+
+Although the dataset includes images collected from three Indian states (Tamil Nadu, Delhi, and Maharashtra) across five districts, it does not represent the full geographic diversity of India's road infrastructure. Road construction materials, maintenance practices, climatic conditions, traffic patterns, and environmental characteristics vary considerably across different regions of the country. Consequently, models trained exclusively on this dataset may exhibit reduced generalization when applied to regions with substantially different road conditions. The dataset is intended to provide a diverse benchmark for road abnormality analysis rather than a statistically representative sample of all Indian roads. Future dataset expansions will focus on increasing geographic coverage by incorporating additional states, districts, and environmental conditions.
 
 > **Note:** Class distribution, state/district distribution, weather distribution, lighting distribution, and bounding-box summary statistics are also reported in earlier sections of this document. Phase 8 focuses on the bias implications and additional imbalance indicators.
 

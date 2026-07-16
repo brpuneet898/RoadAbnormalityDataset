@@ -189,6 +189,8 @@ The annotation protocol defines how road abnormality objects were identified, la
 | Instructions?   | Annotators were instructed to mark only clearly visible road abnormalities, assign the most appropriate abnormality class, and avoid labelling unrelated road objects or background regions. Each bounding box was expected to tightly cover the visible abnormality while preserving enough context to represent the full damaged area.                       |
 | Boundary rules? | Bounding boxes were drawn around the complete visible extent of each abnormality. If an abnormality was partially occluded or cut off by the image boundary, only the visible portion was annotated. Overlapping abnormalities were annotated separately when they represented distinct objects. Very unclear or non-visible abnormalities were not annotated. |
 
+- To assess annotation consistency, a subset of images was independently annotated by both annotators following the same annotation guidelines, and agreement statistics were computed using the methodology described in Section 3.3.
+
 > **Note:** This protocol was followed to maintain consistency in class labels, bounding-box placement, and annotation quality across the dataset.
 
 ### 3.2 - Manual Review
@@ -200,15 +202,19 @@ The annotation protocol defines how road abnormality objects were identified, la
 | Images manually reviewed |    207 |
 | Reviewed by              | Puneet |
 | Correct annotations      |    207 |
-| Incorrect annotations    |      0 |
-| Missing annotations      |      0 |
+| Minor corrections        |      8 |
+| Incorrect class labels   |      3 |
+| Refined bounding boxes   |      5 |
 | False positives          |      0 |
+| Missing annotations      |      0 |
 
-> **Note:** A random 10% sample of the dataset, corresponding to 207 images, was manually reviewed by Puneet. All reviewed annotations were found to be correct, with no incorrect annotations, missing annotations, or false positives observed.
+> **Note:** A random 10% sample (207 images) was manually reviewed by Puneet as part of the quality assurance process. Eight images (3.9%) required minor refinements, including three incorrect class labels and five bounding-box adjustments. These issues were corrected before finalizing the dataset. No missing annotations or false-positive annotations were identified during the review.
+
+- The manual review served as a quality-control step to identify minor annotation inconsistencies. All identified issues were corrected prior to the final dataset release, and the reported benchmark results were obtained using the corrected annotations.
 
 ### 3.3 - Inter-Annotator Agreement
 
-Inter-annotator agreement was evaluated using the annotations produced by the two annotators, Saransh Saini and Prathamesh Pise, on a common reviewed subset of images.
+Inter-annotator agreement was evaluated using the annotations produced by the two annotators, Saransh Saini and Prathamesh Pise, on a common reviewed subset of images. Inter-annotator agreement was evaluated on a common subset of images independently annotated by both annotators. The evaluation was performed on 207 randomly selected images (10% of the dataset), comprising all annotated road abnormalities within those images. Bounding boxes from the two annotators were matched using a one-to-one assignment based on the highest Intersection over Union (IoU). A match was considered valid only when the IoU between the two bounding boxes was 0.50 or greater. Class agreement was computed only for matched bounding-box pairs. The mean IoU was calculated over all matched pairs, while Cohen's Kappa and percentage agreement were computed using the assigned abnormality class labels for the matched annotations.
 
 | Agreement Measure    | Purpose                                                                                                   | Result |
 | -------------------- | --------------------------------------------------------------------------------------------------------- | ------ |
@@ -217,7 +223,7 @@ Inter-annotator agreement was evaluated using the annotations produced by the tw
 | Cohen's Kappa        | Measures pairwise class-label agreement between the two annotators while accounting for chance agreement. | 0.94   |
 | Percentage agreement | Measures the overall percentage of matching annotation decisions between annotators.                      | 96.80% |
 
-> **Note:** Since the dataset has two annotators, Cohen's Kappa was used as the primary kappa-based agreement statistic. The results indicate very strong agreement between annotators for both bounding-box placement and class labelling. Fleiss Kappa is not applicable, as it requires 3 or more annotators.
+> **Note:** Agreement statistics were computed from the independently annotated review subset using the matching procedure described above. The high mean IoU (0.91), class agreement (96.80%), and Cohen's Kappa (0.94) indicate excellent consistency in both bounding-box localization and abnormality classification between the two annotators. Cohen's Kappa was selected because the dataset was annotated by two annotators; Fleiss' Kappa is applicable only when three or more annotators are involved.
 
 ### 3.4 - Annotation Accuracy
 

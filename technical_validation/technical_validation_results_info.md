@@ -27,6 +27,12 @@
 | pHash threshold used          |     2 |
 | Cosine similarity threshold   | 0.995 |
 
+- The detected duplicate images were manually reviewed to determine their origin and impact on the dataset.
+- The 3 exact duplicates and 6 near-duplicate images correspond to repeated captures of the same road abnormality (slightly different viewpoints) rather than duplicated annotation files.
+- Duplicate and near-duplicate samples were identified before dataset splitting and were assigned to the same dataset partition to prevent train–validation–test data leakage.
+- Consequently, no duplicate or near-duplicate image appears across different dataset splits, ensuring that benchmark results are not artificially inflated due to duplicate content.
+- The retained duplicates represent naturally occurring repeated observations and were preserved only where they provide additional real-world variation; they do not compromise the integrity of the evaluation.
+
 ### 1.3 - Metadata Consistency
 
 | Metric                 | Value |

@@ -833,12 +833,12 @@ The project dependencies are listed in `requirements.txt`.
 
 ### 9.6 - Dataset Metadata Checksums
 
-| File | SHA-256 Checksum |
+| File | MD5 Checksum |
 | --- | --- |
-| `layer_0_raw_images/layer_0_raw_image_metadata.csv` | `4923B85C0E2FC1CDFA3E932E3286CEEE17A1A26DBB8B7C76A754096F89A708E5` |
-| `layer_1_annotations/layer_1_annotation_metadata.csv` | `6AAC8F6888105A806AE145A53F9528ADD74BAA30342AA1987885D11028781E8C` |
-| `layer_2_metadata/layer_2_semantic_metadata.csv` | `5C7C35451D2F21725F08CCC1B5EE5AAAADB51CFF7ACDD344E58858415680B632` |
-| `layer_3_geospatial/layer_3_geospatial_metadata.csv` | `D9BECA0BC247EFBC159FB1ACEBCCE430AF08D268436708FF4513805286530712` |
+| `layer_0_raw_images/layer_0_raw_image_metadata.csv` | `90d235567d2d6fcf5f6e61fbbc537bea` |
+| `layer_1_annotations/layer_1_annotation_metadata.csv` | `5df06e30d4f3106ddf4babe0eb47a24f` |
+| `layer_2_metadata/layer_2_semantic_metadata.csv` | `b815a1417281326aba3d13da14f1419d` |
+| `layer_3_geospatial/layer_3_geospatial_metadata.csv` | `bb9e1ebfd3760d2f0954ff93fb2ab2c9` |
 
 ### 9.7 - Reproducibility Notes
 
